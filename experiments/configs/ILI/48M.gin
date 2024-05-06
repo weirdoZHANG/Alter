@@ -1,0 +1,40 @@
+build.experiment_name = 'ILI/48TM'
+build.module = 'experiments.forecast'
+build.repeat = 3
+build.variables_dict = {
+}
+
+instance.model_type = 'alter'
+instance.save_vals = False
+
+get_optimizer.lr = 1e-2
+get_optimizer.lambda_lr = 1.
+get_optimizer.weight_decay = 1e-6
+
+get_scheduler.warmup_epochs = 5
+
+get_data.batch_size = 256
+
+train.loss_name = 'mse'
+train.epochs = 50
+train.clip = 10.
+
+Checkpoint.patience = 7
+
+alter.multiple = 2
+alter.strinr_layers = 1
+alter.layer_size = 512
+alter.dropout = 0.05
+alter.scales = [0.01, 0.1, 1, 5, 10, 20, 50, 100]
+sinReLU.v = 0.2436
+alter.in_channels = 84
+# Actually, in_channels = horizon_len + lookback_len
+
+ForecastDataset.data_path = 'illness/national_illness.csv'
+ForecastDataset.target = 'OT'
+ForecastDataset.scale = True
+ForecastDataset.cross_learn = False
+ForecastDataset.time_features = []
+ForecastDataset.normalise_time_features = True
+ForecastDataset.features = 'TM'
+ForecastDataset.horizon_len = 48
