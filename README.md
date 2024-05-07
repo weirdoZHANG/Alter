@@ -10,8 +10,8 @@
 
 Official PyTorch code repository for the Alter.
 
-* In order to compensate for the shortcomings of the time index model and the multivariate value model, we propose to integrate the time index and multivariate values as new model inputs.
-* In order to dominate the fusion input, a closed Ridge Regressor based on meta-learning mode is used to construct the Alter, and the multi-scale Gaussian random Fourier mapping feature method and Spatial-Temporal-Random MLP concatenation learning are used to learn their feature information.
+* To overcome the shortcomings of time-index models and multivariate-value models, we propose a new input that fuses time index and multivariate value.
+* In order to dominate the fusion input, a closed Ridge Regressor based on meta-learning mode is used to construct the Alter, and the multiscale Gaussian random Fourier mapping feature method and Spatial-Temporal-Random MLP concatenation learning are used to learn their feature information.
 * Under six benchmarks for long-term time series prediction, including ETTm2, ECL, Exchange, Traffic, Weather and ILI, Alter achieved an average performance improvement of 21.5%. Among them, the Alter based on fusion of time index and multivariate value has the best performance in the Alter series.
 
 ## Spatial-Temporal-Random MLP (STRMLP)
@@ -120,4 +120,4 @@ Please consider citing if you find this code useful to your research.
 
 ## Contact
 
-If you have any questions or want to use the code, please contact 2050759039@qq.com.
+If you have any questions or want to use the code, please contact zhangshengbo2049@outlook.com.
