@@ -27,7 +27,7 @@ class ForecastDataset(Dataset):
         assert flag in ('train', 'val', 'test'), \
             f"flag should be one of (train, val, test)"
         assert features in ('TMS', 'MS', 'TS', 'TM'), \
-            f"features should be one of (TMS: date + multivar -> univar, MS: multivar -> univar, TS: data -> univar, TM: data -> multivar(cols+OT))"
+            f"features should be one of (TMS: date + multivar(cols) -> univar(OT), MS: multivar(cols) -> univar(OT), TS: data -> univar(OT), TM: data -> multivar(cols+OT))"
 
         self.flag = flag
         self.lookback_len = 36 #36(ILI) or 96(others)
