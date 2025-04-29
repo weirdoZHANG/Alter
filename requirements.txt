@@ -1,0 +1,10 @@
+fire
+gin-config
+matplotlib
+numpy
+pandas
+scikit-learn
+scipy
+torch  # >=1.11.0
+tqdm
+einops
