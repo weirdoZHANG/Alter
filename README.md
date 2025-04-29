@@ -65,7 +65,7 @@ the `storage/experiments/experiment_name/metrics.npy` file.
 
 We introduce six real-world datasets, covering five major long-term series forecasting application areas: energy, traffic, economy, weather and disease. Then test Alter on these datasets and show that Alter performs better, achieving a relative improvement of 21.5%.
 <p align="center">
-<img src=".\pics\results.png" width = "700" alt="" align=center />
+<img src=".\pics\multivariate.png" width = "700" alt="" align=center />
 <br><br>
 </p>
 
