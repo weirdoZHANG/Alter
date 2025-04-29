@@ -1,0 +1,33 @@
+build.experiment_name = 'ETTm2_336TM'
+build.module = 'exp.forecast'
+build.repeat = 1
+build.variables_dict = {
+    'alter.strinr_layers': [1],
+    'alter.layer_size': [64],
+    'ForecastDataset.lookback_len': [720],
+    'get_optimizer.lr': [1e-3],
+    'alter.dropout': [0]
+}
+
+instance.model_type = 'alter'
+instance.save_vals = False
+
+get_data.batch_size = 32
+
+train.loss_name = 'mse'
+train.epochs = 10
+
+Checkpoint.patience = 3
+
+alter.scales = [0.01, 0.1, 1, 5, 10, 20, 50, 100]
+
+act.activation = 'relu'
+
+ForecastDataset.data_path = 'ETT-small/ETTm2.csv'
+ForecastDataset.target = 'OT'
+ForecastDataset.scale = True
+ForecastDataset.cross_learn = False
+ForecastDataset.time_features = []
+ForecastDataset.normalise_time_features = True
+ForecastDataset.features = 'TM'
+ForecastDataset.horizon_len = 336

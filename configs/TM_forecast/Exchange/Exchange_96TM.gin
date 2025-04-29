@@ -1,0 +1,33 @@
+build.experiment_name = 'Exchange_96TM'
+build.module = 'exp.forecast'
+build.repeat = 1
+build.variables_dict = {
+    'alter.strinr_layers': [1],
+    'alter.layer_size': [512],
+    'ForecastDataset.lookback_len': [64],
+    'get_optimizer.lr': [7e-3],
+    'alter.dropout': [0.1]
+}
+
+instance.model_type = 'alter'
+instance.save_vals = False
+
+get_data.batch_size = 32
+
+train.loss_name = 'mse'
+train.epochs = 10
+
+Checkpoint.patience = 3
+
+alter.scales = [0.01, 0.1, 1, 5, 10, 20, 50, 100]
+
+act.activation = 'relu'
+
+ForecastDataset.data_path = 'exchange_rate/exchange_rate.csv'
+ForecastDataset.target = 'OT'
+ForecastDataset.scale = True
+ForecastDataset.cross_learn = False
+ForecastDataset.time_features = []
+ForecastDataset.normalise_time_features = True
+ForecastDataset.features = 'TM'
+ForecastDataset.horizon_len = 96

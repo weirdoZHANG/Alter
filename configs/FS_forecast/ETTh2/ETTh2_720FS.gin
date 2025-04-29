@@ -1,0 +1,34 @@
+build.experiment_name = 'ETTh2_720FS'
+build.module = 'exp.forecast'
+build.repeat = 3
+build.variables_dict = {
+    'alter.strinr_layers': [2],
+    'alter.layer_size': [64],
+    'ForecastDataset.lookback_len': [720],
+    'get_optimizer.lr': [7e-3],
+    'alter.dropout': [0]
+}
+
+instance.model_type = 'alter'
+instance.save_vals = False
+
+get_data.batch_size = 32
+
+train.loss_name = 'mse'
+train.epochs = 10
+
+Checkpoint.patience = 3
+
+alter.scales = [0.01, 0.1, 1, 5, 10, 20, 50, 100]
+
+act.activation = 'relu'
+
+ForecastDataset.data_path = 'ETT-small/ETTh2.csv'
+ForecastDataset.target = 'OT'
+ForecastDataset.scale = True
+ForecastDataset.cross_learn = False
+ForecastDataset.time_features = []
+ForecastDataset.normalise_time_features = True
+ForecastDataset.features = 'FS'
+ForecastDataset.horizon_len = 720
+ForecastDataset.percent = 10
