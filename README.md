@@ -4,6 +4,7 @@
 <br><br>
 <b>Figure 1.</b> The overall architecture of the Alter model.
 </p>
+![The closed meta-optimization framework](.\pics\Closed_Meta-optimization.png)
 
 <body>
     <div class="image-container">
