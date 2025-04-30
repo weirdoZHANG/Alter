@@ -1,7 +1,7 @@
 # Alter: A Deep Meta-Optimization Model with Learning Spatial-Temporal-Random Information for Time Series Forecasting
 <p align="center">
   <img src=".\pics\Alter.png" width = "200" alt="" align=center />
-  <img src=".\pics\Closed_Meta-optimization.png" width = "200" alt="" align=center />
+  <img src=".\pics\Closed_Meta-optimization.png" width = "300" alt="" align=center />
   <br><br>
   <b>Figure 1.</b> The overall architecture of the Alter model (left). The closed meta-optimization framework (right).
 </p>
