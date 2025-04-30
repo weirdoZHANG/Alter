@@ -43,19 +43,19 @@ To get started, you will need to download the datasets as described in our paper
 We provide some scripts to quickly reproduce the results reported in our paper. There are two options, to run the full
 hyperparameter search, or to directly run the experiments with hyperparameters provided in the configuration files.
 
-__Option A__: Run the configuration of TM_forecast, TS_forecast or FS_forecast.
+__Option A__: Run the configuration of `TM_forecast`, `TS_forecast` or `FS_forecast`.
 
-1. Run the following command to generate the experiments (Take TM_forecast as an example): `make build-all path=configs/TM_forecast/*/*.gin`.
+1. Run the following command to generate the experiments (take `TM_forecast` as an example): `make build-all path=configs/TM_forecast/*/*.gin`.
 2. Run the following script to perform training and evaluation: `./run.sh` (you may need to run `chmod u+x run.sh` first).
 
-__Option B__: Run the configuration of a certain dataset in TM_forecast, TS_forecast or FS_forecast.
+__Option B__: Run the configuration of a `dataset` in `TM_forecast`, `TS_forecast` or `FS_forecast`.
 
-1. Run the following command to generate the experiments (Take the ETTm2 dataset in TM_forecast as an example): `make build-all path=configs/TM_forecast/ETTm2/*.gin`.
+1. Run the following command to generate the experiments (take the `ETTm2` in `TM_forecast` as an example): `make build-all path=configs/TM_forecast/ETTm2/*.gin`.
 2. Run the following script to perform training and evaluation: `./run.sh` (you may need to run `chmod u+x run.sh` first).
 
-__Option C__: Run the configuration of a certain horizon length of a certain dataset in TM_forecast, TS_forecast or FS_forecast.
+__Option C__: Run the configuration of a `horizon length` of a `dataset` in `TM_forecast`, `TS_forecast` or `FS_forecast`.
 
-1. Run the following command to generate the experiments (Take the ETTm2_96TM.gin of the ETTm2 dataset in TM_forecast as an example): `make build-all path=configs/TM_forecast/ETTm2/ETTm2_96TM.gin`.
+1. Run the following command to generate the experiments (take the `ETTm2_96TM.gin` of the `ETTm2` in `TM_forecast` as an example): `make build-all path=configs/TM_forecast/ETTm2/ETTm2_96TM.gin`.
 2. Run the following script to perform training and evaluation: `./run.sh` (you may need to run `chmod u+x run.sh` first).
 
 ## Main Results
