@@ -8,12 +8,12 @@
 <body>
     <div class="image-container">
         <div class="image-wrapper">
-            <img src="./pics/Alter.png" alt="" />
+            <img src=".\pics\Alter.png" width = "200" alt="" align=center />
             <br><br>
             <b>Figure 1.</b> The overall architecture of the Alter model.
         </div>
         <div class="image-wrapper">
-            <img src="./pics/Closed Meta-optimization.png" alt="" />
+            <img src="./pics/Closed Meta-optimization.png" width = "200" alt="" align=center />
             <br><br>
             <b>Figure 2.</b> The closed meta-optimization framework.
         </div>
