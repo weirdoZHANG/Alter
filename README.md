@@ -97,4 +97,4 @@ Please consider citing if you find this code useful to your research.
 
 ## Contact
 
-If you have any questions or want to use the code, please contact `zhangshengbo2049@outlook.com`.
+If you have any questions or want to use the code, please contact zhangshengbo2049@outlook.com.
