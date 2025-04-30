@@ -4,7 +4,7 @@ build: .require-config
 	python -m exp.forecast --config_path=${config} build_experiment
 
 build-all: .require-path
-	for config in $(shell ls ${path}/*.gin); do \
+	for config in $(shell ls ${path}); do \
       make build config=$$config; \
     done
 
