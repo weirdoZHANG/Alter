@@ -1,27 +1,25 @@
-# Alter: Time Series Forecasting Models Capturing Spatial-Temporal-Random Information from Fusion of Time index and Multivariate value
-
+# Alter: A Deep Meta-Optimization Model with Learning Spatial-Temporal-Random Information for Time Series Forecasting
 <p align="center">
 <img src=".\pics\Alter.png" width = "200" alt="" align=center />
 <br><br>
-<b>Figure 1.</b> The overall architecture of Alter model.
+<b>Figure 1.</b> The overall architecture of the Alter model.
 </p>
-
 
 
 Official PyTorch code repository for the Alter.
 
-* To overcome the shortcomings of time-index models and multivariate-value models, we propose a new input that fuses time index and multivariate value.
-* In order to dominate the fusion input, a closed Ridge Regressor based on meta-learning mode is used to construct the Alter, and the multiscale Gaussian random Fourier mapping feature method and Spatial-Temporal-Random MLP concatenation learning are used to learn their feature information.
-* Under six benchmarks for long-term time series prediction, including ETTm2, ECL, Exchange, Traffic, Weather and ILI, Alter achieved an average performance improvement of 21.5%. Among them, the Alter based on fusion of time index and multivariate value has the best performance in the Alter series.
+* Introducing the proposed Alter model and its crucial internal modules in detail.
+* Designing key algorithms like Spatial AKConv, EGU, and Random INR to efficiently extract Spatial-Temporal-Random information, and using Standard INR to enhance the feature representation.
+* Achieving state-of-the-art performance in various prediction tasks, Alter has verified the effectiveness of its key components through numerous ablation experiments.
 
 ## Spatial-Temporal-Random MLP (STRMLP)
 
-Inspired by many MLP precedents of joint learning information, our proposed STRMLP can capture spatial correlation, temporal dependence and randomness information of sequences.
+Our proposed STRMLP can capture spatial correlation, temporal dependence and randomness information of sequences.
 
 <p align="center">
 <img src=".\pics\STRMLP.png" width = "800" alt="" align=center />
 <br><br>
-<b>Figure 2.</b> The structure of each layer of STRINR in STRMLP.
+<b>Figure 2.</b> The structure of one layer of STRINR in STRMLP, which includes four types of algorithms: EGU, Spatial AKConv, Random INR, and Standard INR.
 </p>
 
 ## Requirements
@@ -34,83 +32,62 @@ pip install -r requirements.txt
 
 ## Quick Start
 
-### Data
+### Datasets
 
 To get started, you will need to download the datasets as described in our paper:
 
-* Pre-processed datasets can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1ZOYpTUa82_jCcxIdTmyr0LXQfvaM9vIy?usp=sharing), as obtained from [Autoformer's](https://github.com/thuml/Autoformer) GitHub repository.
-* Place the downloaded datasets into the `storage/datasets/` folder, e.g. `storage/datasets/ETT-small/ETTm2.csv`.
+* See `datasets/README.md`
 
 ### Reproducing Experiment Results
 
 We provide some scripts to quickly reproduce the results reported in our paper. There are two options, to run the full
 hyperparameter search, or to directly run the experiments with hyperparameters provided in the configuration files.
 
-__Option A__: Run the full hyperparameter search.
+__Option A__: Run the configuration of TM_forecast, TS_forecast or FS_forecast.
 
-1. Run the following command to generate the experiments: `make build-all path=experiments/configs/hp_search`.
-2. Run the following script to perform training and evaluation: `./run_hp_search.sh` (you may need to
-   run `chmod u+x run_hp_search.sh` first).
+1. Run the following command to generate the experiments (Take TM_forecast as an example): `make build-all path=configs/TM_forecast/*/*.gin`.
+2. Run the following script to perform training and evaluation: `./run.sh` (you may need to run `chmod u+x run.sh` first).
 
-__Option B__: Directly run the experiments with hyperparameters provided in the configuration files.
+__Option B__: Run the configuration of a certain dataset in TM_forecast, TS_forecast or FS_forecast.
 
-1. Run the following command to generate the experiments: `make build-all path=experiments/configs/ETTm2`.
-2. Run the following script to perform training and evaluation: `./run.sh` (you may need to run `chmod u+x run.sh`
-   first).
+1. Run the following command to generate the experiments (Take the ETTm2 dataset in TM_forecast as an example): `make build-all path=configs/TM_forecast/ETTm2/*.gin`.
+2. Run the following script to perform training and evaluation: `./run.sh` (you may need to run `chmod u+x run.sh` first).
 
-Finally, results can be viewed on tensorboard by running `tensorboard --logdir storage/experiments/`, or in
-the `storage/experiments/experiment_name/metrics.npy` file.
+__Option C__: Run the configuration of a certain horizon length of a certain dataset in TM_forecast, TS_forecast or FS_forecast.
+
+1. Run the following command to generate the experiments (Take the ETTm2_96TM.gin of the ETTm2 dataset in TM_forecast as an example): `make build-all path=configs/TM_forecast/ETTm2/ETTm2_96TM.gin`.
+2. Run the following script to perform training and evaluation: `./run.sh` (you may need to run `chmod u+x run.sh` first).
 
 ## Main Results
 
-We introduce six real-world datasets, covering five major long-term series forecasting application areas: energy, traffic, economy, weather and disease. Then test Alter on these datasets and show that Alter performs better, achieving a relative improvement of 21.5%.
+Alter performs relatively evenly across multiple domains and tasks, demonstrating its potential advantages as a general-purpose model. The following are the main results of multivariate, univariate and few-shot prediction.
+
+1. Multivariate prediction results.
 <p align="center">
 <img src=".\pics\multivariate.png" width = "700" alt="" align=center />
 <br><br>
 </p>
 
+2. Univariate prediction results.
+<p align="center">
+<img src=".\pics\univariate.png" width = "700" alt="" align=center />
+<br><br>
+</p>
 
-## Detailed Usage
-
-Further details of the code repository can be found here. The codebase is structured to generate experiments from
-a `.gin` configuration file based on the `build.variables_dict` argument.
-
-1. First, build the experiment from a config file. We provide 2 ways to build an experiment.
-    1. Build a single config file:
-       ```
-       make build config=experiments/configs/folder_name/file_name.gin
-       ```
-    2. Build a group of config files:
-       ```bash
-       make build-all path=experiments/configs/folder_name
-       ```
-2. Next, run the experiment using the following command
-    ```bash 
-    python -m experiments.forecast --config_path=storage/experiments/experiment_name/config.gin run
-   ```
-   Alternatively, the first step generates a command file found in `storage/experiments/experiment_name/command`, which
-   you can use by the following command,
-   ```bash
-   make run command=storage/experiments/experiment_name/command
-   ```
-3. Finally, you can observe the results on tensorboard
-   ```bash
-   tensorboard --logdir storage/experiments/
-   ```
-   or view the `storage/experiments/experiment_name/metrics.npy` file.
+3. Few-shot prediction results.
+<p align="center">
+<img src=".\pics\few-shot.png" width = "700" alt="" align=center />
+<br><br>
+</p>
 
 ## Acknowledgements
 
 The implementation of Alter relies on the resources of the following code libraries and repositories, as well as code snippets from reference papers. We appreciate the original authors for opening up their work.
 
-* https://github.com/thuml/Nonstationary_Transformers
 * https://github.com/thuml/TimesNet
 * https://github.com/salesforce/DeepTime
-* https://github.com/MAZiqing/FEDformer
 * https://github.com/thuml/Autoformer
 * https://github.com/CV-ZhangXin/AKConv
-* https://github.com/laohuu/deep_learning_implementations/blob/main/algorithms/lstm/lstm.py
-* https://arxiv.org/abs/2402.10487
 
 ## Citation
 
@@ -120,4 +97,4 @@ Please consider citing if you find this code useful to your research.
 
 ## Contact
 
-If you have any questions or want to use the code, please contact zhangshengbo2049@outlook.com.
+If you have any questions or want to use the code, please contact `zhangshengbo2049@outlook.com`.
