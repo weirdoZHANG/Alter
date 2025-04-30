@@ -1,25 +1,10 @@
 # Alter: A Deep Meta-Optimization Model with Learning Spatial-Temporal-Random Information for Time Series Forecasting
 <p align="center">
-<img src=".\pics\Alter.png" width = "200" alt="" align=center />
-<br><br>
-<b>Figure 1.</b> The overall architecture of the Alter model.
+  <img src=".\pics\Alter.png" width = "200" alt="" align=center />
+  <img src=".\pics\AnotherImage.png" width = "200" alt="" align=center />
+  <br><br>
+  <b>Figure 1.</b> The overall architecture of the Alter model (left). The closed meta-optimization framework (right).
 </p>
-![The closed meta-optimization framework](.\pics\Closed_Meta-optimization.png)
-
-<body>
-    <div class="image-container">
-        <div class="image-wrapper">
-            <img src=".\pics\Alter.png" width = "200" alt="" align=center />
-            <br><br>
-            <b>Figure 1.</b> The overall architecture of the Alter model.
-        </div>
-        <div class="image-wrapper">
-            <img src=".\pics\Closed_Meta-optimization.png" width = "200" alt="" align=center />
-            <br><br>
-            <b>Figure 2.</b> The closed meta-optimization framework.
-        </div>
-    </div>
-</body>
 
 Official PyTorch code repository for the Alter.
 
