@@ -62,19 +62,19 @@ __Option C__: Run the configuration of a certain horizon length of a certain dat
 
 Alter performs relatively evenly across multiple domains and tasks, demonstrating its potential advantages as a general-purpose model. The following are the main results of multivariate, univariate and few-shot prediction.
 
-1. Multivariate prediction results.
+__Multivariate prediction results__
 <p align="center">
 <img src=".\pics\multivariate.png" width = "700" alt="" align=center />
 <br><br>
 </p>
 
-2. Univariate prediction results.
+__Univariate prediction results__
 <p align="center">
 <img src=".\pics\univariate.png" width = "700" alt="" align=center />
 <br><br>
 </p>
 
-3. Few-shot prediction results.
+__Few-shot prediction results__
 <p align="center">
 <img src=".\pics\few-shot.png" width = "700" alt="" align=center />
 <br><br>
