@@ -1,6 +1,6 @@
 import torch.nn as nn
 from torch import Tensor
-from .CFF import CFF
+from .CFF import ConcatenatedFourierFeatures
 from .egu import EGULayer
 from .spatial_akconv import SpatialAKConv
 from .random_inr import RandomINR
@@ -47,7 +47,7 @@ class STRINRLayer(nn.Module):
 class STRMLP(nn.Module):
     def __init__(self, in_feats: int, layers: int, layer_size: int, scales: float, dropout: float):
         super().__init__()
-        self.features = CFF(in_feats, layer_size, scales)
+        self.features = ConcatenatedFourierFeatures(in_feats, layer_size, scales)
 
         layers = [STRINRLayer(layer_size, dropout) for _ in range(layers)]
         self.layers = nn.Sequential(*layers)
