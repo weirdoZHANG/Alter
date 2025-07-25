@@ -5,7 +5,7 @@ from torch import nn
 from torch import Tensor
 
 
-class MultiscaleGaussianRandomFourierMapping(nn.Module):
+class CFF(nn.Module):
     """
     https://github.com/ndahlquist/pytorch-fourier-feature-networks
     Given an input of size [..., tau, dim], returns a tensor of size [..., tau, layer_size].
