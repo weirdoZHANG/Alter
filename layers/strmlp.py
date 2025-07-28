@@ -1,6 +1,6 @@
 import torch.nn as nn
 from torch import Tensor
-from .CFF import ConcatenatedFourierFeatures
+from .cff import ConcatenatedFourierFeatures
 from .egu import EGULayer
 from .spatial_akconv import SpatialAKConv
 from .random_inr import RandomINR
