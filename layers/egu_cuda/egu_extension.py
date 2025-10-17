@@ -56,7 +56,7 @@ class EGU(nn.Module):
         self.reset_parameters()
 
     def reset_parameters(self):
-        """采用与RNN/LSTM*/GRU一致的权重初始化"""
+        """Adopt the weight initialization method used by RNN/LSTM/GRU"""
         stdv = 1.0 / math.sqrt(self.hidden_size) if self.hidden_size > 0 else 0
 
         for i in range(len(self.weight_ih_list)):
