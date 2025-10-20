@@ -80,6 +80,10 @@ __Few-shot prediction results__
 <br><br>
 </p>
 
+## Note
+
+The previous slow training speed of Alter was due to the fact that the EGU we proposed only provided a Python version, which did not utilize the hardware acceleration capability of C++ CUDA. To address this issue, we have additionally uploaded the accelerated version of EGU, which is specifically stored in the layers/egu_cuda directory for researchers to use conveniently and improve training efficiency.
+
 ## Acknowledgements
 
 The implementation of Alter relies on the resources of the following code libraries and repositories, as well as code snippets from reference papers. We appreciate the original authors for opening up their work.
